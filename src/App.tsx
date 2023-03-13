@@ -1,6 +1,6 @@
-import React, { useRef } from "react";
+import React, { useEffect } from "react";
 import styled from "styled-components";
-import { motion, Variant } from "framer-motion";
+import { motion, useMotionValue, Variant } from "framer-motion";
 
 const Wrapper = styled.div`
   height: 100vh;
@@ -34,20 +34,14 @@ const boxVariants = {
 };
 
 function App() {
-  const biggerBoxRef = useRef<HTMLDivElement>(null);
+  const x = useMotionValue(0);
+  useEffect(() => {
+    x.onChange(() => console.log(x.get()));
+  }, [x]);
   return (
     <Wrapper>
-      <BiggerBox ref={biggerBoxRef}>
-        <Box
-          drag
-          dragSnapToOrigin
-          dragElastic={0.05}
-          dragConstraints={biggerBoxRef}
-          variants={boxVariants}
-          whileHover="hover"
-          whileTap="click"
-        />
-      </BiggerBox>
+      <button onClick={() => x.set(200)}>click me</button>
+      <Box style={{ x }} drag="x" dragSnapToOrigin></Box>
     </Wrapper>
   );
 }
