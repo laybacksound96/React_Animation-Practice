@@ -41,6 +41,7 @@ function App() {
         <Box
           drag
           dragSnapToOrigin
+          dragElastic={0.05}
           dragConstraints={biggerBoxRef}
           variants={boxVariants}
           whileHover="hover"
