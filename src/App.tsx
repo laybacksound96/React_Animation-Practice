@@ -8,8 +8,6 @@ import {
   useMotionValueEvent,
 } from "framer-motion";
 
-const 응가 = "응가";
-
 const Wrapper = styled(motion.div)`
   height: 100vh;
   width: 100vw;
