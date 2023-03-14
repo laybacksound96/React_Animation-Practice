@@ -70,9 +70,7 @@ function App() {
     ]
   );
   const { scrollY, scrollYProgress } = useScroll();
-  // useMotionValueEvent(scrollY, "change", () => {
-  //   console.log(scrollY.get(), scrollYProgress.get());
-  // });
+
   const scale = useTransform(scrollYProgress, [0, 1], [1, 3]);
   return (
     <Wrapper style={{ background: gradient }}>
