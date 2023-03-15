@@ -31,6 +31,7 @@ const boxVariants = {
   },
   leaving: {
     opacity: 0,
+    scale: 0,
     y: 20,
   },
 };
@@ -41,7 +42,16 @@ function App() {
   return (
     <Wrapper>
       <button onClick={toggleShowing}>Click me</button>
-      <AnimatePresence>{isShowing ? <Box></Box> : null}</AnimatePresence>
+      <AnimatePresence>
+        {isShowing ? (
+          <Box
+            variants={boxVariants}
+            initial="initial"
+            animate="visible"
+            exit="leaving"
+          ></Box>
+        ) : null}
+      </AnimatePresence>
     </Wrapper>
   );
 }
